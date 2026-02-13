@@ -25,12 +25,6 @@
     </header>
 
     <section class="panel">
-      <div class="lang-switch" role="group" aria-label="Language switcher">
-        <button type="button" class="lang-btn active" data-lang="ko">한국어</button>
-        <button type="button" class="lang-btn" data-lang="en">English</button>
-        <button type="button" class="lang-btn" data-lang="es">Español</button>
-      </div>
-
       <section class="info-block">
         <h2 id="guideTitle">한국 띠와 오행 색 기준</h2>
         <p id="guideP1">이 페이지는 출생년도를 기준으로 십간(천간)과 십이지(지지)를 조합해 띠와 색을 계산하는 원리를 설명합니다.</p>
@@ -109,7 +103,7 @@
     };
 
     function setLanguage(lang) {
-      const t = ui[lang];
+      const t = ui[lang] || ui.ko;
       document.documentElement.lang = t.htmlLang;
       document.getElementById("pageTitle").textContent = t.pageTitle;
       document.getElementById("pageDesc").textContent = t.pageDesc;
@@ -122,21 +116,18 @@
       document.getElementById("card2Body").textContent = t.card2Body;
       document.getElementById("card3Title").textContent = t.card3Title;
       document.getElementById("card3Body").textContent = t.card3Body;
-
-      document.querySelectorAll(".lang-btn").forEach((btn) => {
-        btn.classList.toggle("active", btn.dataset.lang === lang);
-      });
     }
 
-    document.querySelector(".lang-switch").addEventListener("click", (event) => {
-      const btn = event.target.closest(".lang-btn");
-      if (!btn) {
-        return;
+    function getSavedLanguage() {
+      try {
+        const saved = localStorage.getItem("site_lang");
+        return ui[saved] ? saved : "ko";
+      } catch (error) {
+        return "ko";
       }
-      setLanguage(btn.dataset.lang);
-    });
+    }
 
-    setLanguage("ko");
+    setLanguage(getSavedLanguage());
 
     try {
       (window.adsbygoogle = window.adsbygoogle || []).push({});

@@ -25,12 +25,6 @@
     </header>
 
     <section class="panel info-block">
-      <div class="lang-switch" role="group" aria-label="Language switcher">
-        <button type="button" class="lang-btn active" data-lang="ko">한국어</button>
-        <button type="button" class="lang-btn" data-lang="en">English</button>
-        <button type="button" class="lang-btn" data-lang="es">Español</button>
-      </div>
-
       <h2 id="faqTitle">자주 묻는 질문</h2>
       <div class="faq-list">
         <article>
@@ -99,7 +93,7 @@
     };
 
     function setLanguage(lang) {
-      const t = ui[lang];
+      const t = ui[lang] || ui.ko;
       document.documentElement.lang = t.htmlLang;
       document.getElementById("pageTitle").textContent = t.pageTitle;
       document.getElementById("pageDesc").textContent = t.pageDesc;
@@ -110,21 +104,18 @@
       document.getElementById("a2").textContent = t.a2;
       document.getElementById("q3").textContent = t.q3;
       document.getElementById("a3").textContent = t.a3;
-
-      document.querySelectorAll(".lang-btn").forEach((btn) => {
-        btn.classList.toggle("active", btn.dataset.lang === lang);
-      });
     }
 
-    document.querySelector(".lang-switch").addEventListener("click", (event) => {
-      const btn = event.target.closest(".lang-btn");
-      if (!btn) {
-        return;
+    function getSavedLanguage() {
+      try {
+        const saved = localStorage.getItem("site_lang");
+        return ui[saved] ? saved : "ko";
+      } catch (error) {
+        return "ko";
       }
-      setLanguage(btn.dataset.lang);
-    });
+    }
 
-    setLanguage("ko");
+    setLanguage(getSavedLanguage());
 
     try {
       (window.adsbygoogle = window.adsbygoogle || []).push({});

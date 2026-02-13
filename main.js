@@ -125,6 +125,7 @@ const footerContact = document.getElementById("footerContact");
 let currentLang = "ko";
 let lastYear = null;
 let resultState = "empty";
+const LANG_STORAGE_KEY = "site_lang";
 
 const animalFileNameMap = {
   rat: "mouse",
@@ -157,6 +158,9 @@ function getGanji(year) {
 }
 
 function setLanguage(lang) {
+  if (!uiText[lang]) {
+    return;
+  }
   currentLang = lang;
   const text = uiText[lang];
 
@@ -181,6 +185,12 @@ function setLanguage(lang) {
   langButtons.forEach((btn) => {
     btn.classList.toggle("active", btn.dataset.lang === lang);
   });
+
+  try {
+    localStorage.setItem(LANG_STORAGE_KEY, lang);
+  } catch (error) {
+    // Ignore storage errors in restricted environments.
+  }
 
   if (resultState === "success" && lastYear !== null) {
     renderSuccess(lastYear);
@@ -270,4 +280,16 @@ function initAds() {
 
 window.addEventListener("load", initAds);
 
-setLanguage("ko");
+function getSavedLanguage() {
+  try {
+    const saved = localStorage.getItem(LANG_STORAGE_KEY);
+    if (saved && uiText[saved]) {
+      return saved;
+    }
+  } catch (error) {
+    // Ignore storage errors in restricted environments.
+  }
+  return "ko";
+}
+
+setLanguage(getSavedLanguage());

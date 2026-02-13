@@ -14,11 +14,6 @@
       <p class="eyebrow">About This Site</p>
       <h1 id="pageTitle">사이트 소개</h1>
       <p id="pageDesc" class="desc">한국 띠 계산을 쉽게 확인할 수 있도록 만든 정보형 도구입니다.</p>
-      <div class="lang-switch" role="group" aria-label="Language switcher">
-        <button type="button" class="lang-btn active" data-lang="ko">한국어</button>
-        <button type="button" class="lang-btn" data-lang="en">English</button>
-        <button type="button" class="lang-btn" data-lang="es">Español</button>
-      </div>
       <nav class="top-nav" aria-label="Main">
         <a id="navHome" href="index.html">홈</a>
         <a id="navPrivacy" href="privacy.html">개인정보처리방침</a>
@@ -42,9 +37,9 @@
       en: { htmlLang: "en", pageTitle: "About", pageDesc: "An informational tool to quickly check Korean zodiac animals and five-element colors.", navHome: "Home", navPrivacy: "Privacy", navContact: "Contact", sec1Title: "Purpose", sec1Body: "The goal is to help users quickly identify their Korean zodiac animal and color from birth year.", sec2Title: "Content Principles", sec2Body: "We disclose calculation rules clearly and explain known limits of the tool.", sec3Title: "Update Policy", sec3Body: "We continuously improve typo fixes, translation quality, accessibility, and mobile usability." },
       es: { htmlLang: "es", pageTitle: "Acerca del sitio", pageDesc: "Herramienta informativa para consultar rapido el zodiaco coreano y los colores de los cinco elementos.", navHome: "Inicio", navPrivacy: "Privacidad", navContact: "Contacto", sec1Title: "Objetivo", sec1Body: "El objetivo es ayudar a los usuarios a identificar rapidamente su animal y color segun el ano de nacimiento.", sec2Title: "Principios de contenido", sec2Body: "Mostramos claramente las reglas de calculo y las limitaciones conocidas de la herramienta.", sec3Title: "Politica de actualizacion", sec3Body: "Mejoramos continuamente correcciones, traducciones, accesibilidad y experiencia movil." }
     };
-    function setLanguage(lang) { const t = ui[lang]; document.documentElement.lang = t.htmlLang; Object.keys(t).forEach((k) => { if (k === "htmlLang") return; const n = document.getElementById(k); if (n) n.textContent = t[k]; }); document.querySelectorAll('.lang-btn').forEach((b)=>b.classList.toggle('active', b.dataset.lang===lang)); }
-    document.querySelector('.lang-switch').addEventListener('click', (e)=>{ const b=e.target.closest('.lang-btn'); if(!b) return; setLanguage(b.dataset.lang); });
-    setLanguage('ko');
+    function setLanguage(lang) { const t = ui[lang] || ui.ko; document.documentElement.lang = t.htmlLang; Object.keys(t).forEach((k) => { if (k === "htmlLang") return; const n = document.getElementById(k); if (n) n.textContent = t[k]; }); }
+    function getSavedLanguage() { try { const saved = localStorage.getItem("site_lang"); return ui[saved] ? saved : "ko"; } catch (error) { return "ko"; } }
+    setLanguage(getSavedLanguage());
   </script>
 </body>
 </html>

@@ -29,12 +29,6 @@
     </header>
 
     <section class="panel">
-      <div class="lang-switch" role="group" aria-label="Language switcher">
-        <button type="button" class="lang-btn active" data-lang="ko">한국어</button>
-        <button type="button" class="lang-btn" data-lang="en">English</button>
-        <button type="button" class="lang-btn" data-lang="es">Español</button>
-      </div>
-
       <section class="info-block">
         <h2 id="sec1Title">십이지(12지)란?</h2>
         <p id="sec1Body1">한국 띠는 12년 주기로 반복되는 지지 체계입니다. 순서는 쥐, 소, 호랑이, 토끼, 용, 뱀, 말, 양, 원숭이, 닭, 개, 돼지입니다.</p>
@@ -144,25 +138,25 @@
     };
 
     function setLanguage(lang) {
-      const t = ui[lang];
+      const t = ui[lang] || ui.ko;
       document.documentElement.lang = t.htmlLang;
       Object.keys(t).forEach((key) => {
         if (key === "htmlLang") return;
         const node = document.getElementById(key);
         if (node) node.textContent = t[key];
       });
-      document.querySelectorAll(".lang-btn").forEach((btn) => {
-        btn.classList.toggle("active", btn.dataset.lang === lang);
-      });
     }
 
-    document.querySelector(".lang-switch").addEventListener("click", (event) => {
-      const btn = event.target.closest(".lang-btn");
-      if (!btn) return;
-      setLanguage(btn.dataset.lang);
-    });
+    function getSavedLanguage() {
+      try {
+        const saved = localStorage.getItem("site_lang");
+        return ui[saved] ? saved : "ko";
+      } catch (error) {
+        return "ko";
+      }
+    }
 
-    setLanguage("ko");
+    setLanguage(getSavedLanguage());
   </script>
 </body>
 </html>

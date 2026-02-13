@@ -13,11 +13,6 @@
     <header class="site-header">
       <p class="eyebrow">Privacy Policy</p>
       <h1 id="pageTitle">개인정보처리방침</h1>
-      <div class="lang-switch" role="group" aria-label="Language switcher">
-        <button type="button" class="lang-btn active" data-lang="ko">한국어</button>
-        <button type="button" class="lang-btn" data-lang="en">English</button>
-        <button type="button" class="lang-btn" data-lang="es">Español</button>
-      </div>
       <nav class="top-nav" aria-label="Main">
         <a id="navHome" href="index.html">홈</a>
         <a id="navAbout" href="about.html">사이트 소개</a>
@@ -46,9 +41,9 @@
       en: { htmlLang: "en", pageTitle: "Privacy Policy", navHome: "Home", navAbout: "About", navContact: "Contact", sec1Title: "1. Information We Collect", sec1Body: "This site does not store the birth year input on the server. The value is used only for in-browser calculation.", sec2Title: "2. Logs and Cookies", sec2Body: "Hosting, analytics, and advertising tools may process basic logs, cookies, and device information.", sec3Title: "3. Advertising", sec3Body: "We may use Google AdSense, and Google may provide interest-based ads using cookies.", sec4Title: "4. User Choices", sec4Body: "Users can restrict or delete cookies through browser settings.", sec5Title: "5. Contact", sec5Body: "For privacy-related inquiries, please use the Contact page." },
       es: { htmlLang: "es", pageTitle: "Politica de Privacidad", navHome: "Inicio", navAbout: "Acerca de", navContact: "Contacto", sec1Title: "1. Informacion que recopilamos", sec1Body: "Este sitio no guarda el ano de nacimiento en el servidor. El valor se usa solo para calculo en el navegador.", sec2Title: "2. Registros y cookies", sec2Body: "Las herramientas de hosting, analitica y publicidad pueden procesar registros basicos, cookies e informacion del dispositivo.", sec3Title: "3. Publicidad", sec3Body: "Podemos usar Google AdSense y Google puede mostrar anuncios basados en intereses mediante cookies.", sec4Title: "4. Opciones del usuario", sec4Body: "El usuario puede restringir o eliminar cookies desde la configuracion del navegador.", sec5Title: "5. Contacto", sec5Body: "Para consultas de privacidad, usa la pagina de Contacto." }
     };
-    function setLanguage(lang) { const t = ui[lang]; document.documentElement.lang = t.htmlLang; Object.keys(t).forEach((k)=>{ if(k==='htmlLang') return; const n=document.getElementById(k); if(n) n.textContent=t[k]; }); document.querySelectorAll('.lang-btn').forEach((b)=>b.classList.toggle('active', b.dataset.lang===lang)); }
-    document.querySelector('.lang-switch').addEventListener('click', (e)=>{ const b=e.target.closest('.lang-btn'); if(!b) return; setLanguage(b.dataset.lang); });
-    setLanguage('ko');
+    function setLanguage(lang) { const t = ui[lang] || ui.ko; document.documentElement.lang = t.htmlLang; Object.keys(t).forEach((k)=>{ if(k==='htmlLang') return; const n=document.getElementById(k); if(n) n.textContent=t[k]; }); }
+    function getSavedLanguage() { try { const saved = localStorage.getItem("site_lang"); return ui[saved] ? saved : "ko"; } catch (error) { return "ko"; } }
+    setLanguage(getSavedLanguage());
   </script>
 </body>
 </html>

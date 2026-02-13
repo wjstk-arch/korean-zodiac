@@ -14,11 +14,6 @@
       <p class="eyebrow">Contact</p>
       <h1 id="pageTitle">문의</h1>
       <p id="pageDesc" class="desc">오류 제보, 번역 수정, 콘텐츠 제안을 보내주세요.</p>
-      <div class="lang-switch" role="group" aria-label="Language switcher">
-        <button type="button" class="lang-btn active" data-lang="ko">한국어</button>
-        <button type="button" class="lang-btn" data-lang="en">English</button>
-        <button type="button" class="lang-btn" data-lang="es">Español</button>
-      </div>
       <nav class="top-nav" aria-label="Main">
         <a id="navHome" href="index.html">홈</a>
         <a id="navAbout" href="about.html">사이트 소개</a>
@@ -42,9 +37,9 @@
       en: { htmlLang: "en", pageTitle: "Contact", pageDesc: "Send bug reports, translation fixes, and content suggestions.", navHome: "Home", navAbout: "About", navPrivacy: "Privacy", sec1Title: "How to Contact", emailLabel: "Email", sec2Title: "Response Scope", sec2Body: "We prioritize zodiac calculation issues, image issues, language fixes, and policy-page inquiries.", sec3Title: "Response Time", sec3Body: "Our target is a first response within 3 business days." },
       es: { htmlLang: "es", pageTitle: "Contacto", pageDesc: "Envia reportes de errores, correcciones de traduccion y sugerencias de contenido.", navHome: "Inicio", navAbout: "Acerca de", navPrivacy: "Privacidad", sec1Title: "Como contactar", emailLabel: "Correo", sec2Title: "Alcance de respuesta", sec2Body: "Priorizamos errores de calculo, problemas de imagen, correcciones de idioma y consultas de politicas.", sec3Title: "Tiempo de respuesta", sec3Body: "Nuestro objetivo es responder por primera vez en un plazo de 3 dias habiles." }
     };
-    function setLanguage(lang) { const t=ui[lang]; document.documentElement.lang=t.htmlLang; Object.keys(t).forEach((k)=>{ if(k==='htmlLang') return; const n=document.getElementById(k); if(n) n.textContent=t[k]; }); document.querySelectorAll('.lang-btn').forEach((b)=>b.classList.toggle('active', b.dataset.lang===lang)); }
-    document.querySelector('.lang-switch').addEventListener('click', (e)=>{ const b=e.target.closest('.lang-btn'); if(!b) return; setLanguage(b.dataset.lang); });
-    setLanguage('ko');
+    function setLanguage(lang) { const t=ui[lang] || ui.ko; document.documentElement.lang=t.htmlLang; Object.keys(t).forEach((k)=>{ if(k==='htmlLang') return; const n=document.getElementById(k); if(n) n.textContent=t[k]; }); }
+    function getSavedLanguage() { try { const saved = localStorage.getItem("site_lang"); return ui[saved] ? saved : "ko"; } catch (error) { return "ko"; } }
+    setLanguage(getSavedLanguage());
   </script>
 </body>
 </html>
