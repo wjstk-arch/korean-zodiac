@@ -202,4 +202,17 @@ if (langSwitch) {
   });
 }
 
+function initAds() {
+  const adUnits = document.querySelectorAll(".adsbygoogle");
+  adUnits.forEach(() => {
+    try {
+      (window.adsbygoogle = window.adsbygoogle || []).push({});
+    } catch (error) {
+      // Ignore init errors in local/dev environments.
+    }
+  });
+}
+
+window.addEventListener("load", initAds);
+
 setLanguage("ko");

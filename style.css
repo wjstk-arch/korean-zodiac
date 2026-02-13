@@ -169,3 +169,11 @@ input {
     margin-inline: auto;
   }
 }
+
+.ad-wrap {
+  margin-top: 16px;
+  padding: 10px;
+  border: 1px dashed #cbd5e1;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.65);
+}
