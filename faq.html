@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="한국 띠 사이트 자주 묻는 질문 페이지">
+  <meta name="google-adsense-account" content="ca-pub-1729963445470866">
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1729963445470866" crossorigin="anonymous"></script>
+  <title>자주 묻는 질문 | Korean Zodiac</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="app subpage">
+    <header class="site-header">
+      <div class="header-top">
+        <p class="eyebrow">Korean Zodiac FAQ</p>
+        <div class="top-quick-links">
+          <a class="top-corner-link" href="index.html">홈</a>
+          <a class="top-corner-link" href="korean-zodiac.html">Korean Zodiac 소개</a>
+          <a class="top-corner-link" href="guide.html">오행색 가이드</a>
+        </div>
+      </div>
+      <h1 id="pageTitle">자주 묻는 질문</h1>
+      <p id="pageDesc" class="desc">한국 띠 계산기 사용 시 자주 받는 질문과 답변을 정리했습니다.</p>
+    </header>
+
+    <section class="panel info-block">
+      <div class="lang-switch" role="group" aria-label="Language switcher">
+        <button type="button" class="lang-btn active" data-lang="ko">한국어</button>
+        <button type="button" class="lang-btn" data-lang="en">English</button>
+        <button type="button" class="lang-btn" data-lang="es">Español</button>
+      </div>
+
+      <h2 id="faqTitle">자주 묻는 질문</h2>
+      <div class="faq-list">
+        <article>
+          <h3 id="q1">음력 생일 기준과 다른가요?</h3>
+          <p id="a1">현재 도구는 간편 조회용으로 양력 연도 기준을 사용합니다. 절입(입춘) 기준 세부 해석은 별도 검토가 필요합니다.</p>
+        </article>
+        <article>
+          <h3 id="q2">광고가 바로 보이지 않아요.</h3>
+          <p id="a2">AdSense 검토/승인 상태, 광고 단위 설정, 트래픽/정책 상태에 따라 노출까지 시간이 걸릴 수 있습니다.</p>
+        </article>
+        <article>
+          <h3 id="q3">데이터를 저장하나요?</h3>
+          <p id="a3">출생연도 입력값은 브라우저에서 즉시 계산에만 사용하며 서버 저장 기능은 없습니다.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="ad-wrap" aria-label="Advertisement">
+      <ins class="adsbygoogle"
+           style="display:block"
+           data-ad-client="ca-pub-1729963445470866"
+           data-ad-slot="0000000000"
+           data-ad-format="auto"
+           data-full-width-responsive="true"></ins>
+    </section>
+  </main>
+
+  <script>
+    const ui = {
+      ko: {
+        htmlLang: "ko",
+        pageTitle: "자주 묻는 질문",
+        pageDesc: "한국 띠 계산기 사용 시 자주 받는 질문과 답변을 정리했습니다.",
+        faqTitle: "자주 묻는 질문",
+        q1: "음력 생일 기준과 다른가요?",
+        a1: "현재 도구는 간편 조회용으로 양력 연도 기준을 사용합니다. 절입(입춘) 기준 세부 해석은 별도 검토가 필요합니다.",
+        q2: "광고가 바로 보이지 않아요.",
+        a2: "AdSense 검토/승인 상태, 광고 단위 설정, 트래픽/정책 상태에 따라 노출까지 시간이 걸릴 수 있습니다.",
+        q3: "데이터를 저장하나요?",
+        a3: "출생연도 입력값은 브라우저에서 즉시 계산에만 사용하며 서버 저장 기능은 없습니다."
+      },
+      en: {
+        htmlLang: "en",
+        pageTitle: "Frequently Asked Questions",
+        pageDesc: "Common questions and answers about using the Korean zodiac calculator.",
+        faqTitle: "Frequently Asked Questions",
+        q1: "Is this different from lunar calendar interpretation?",
+        a1: "Yes. This tool is a quick lookup based on the solar birth year. Detailed interpretation with seasonal boundaries may differ.",
+        q2: "Why are ads not visible immediately?",
+        a2: "Ad visibility depends on AdSense review status, ad unit setup, policy status, and traffic conditions.",
+        q3: "Do you store my birth year?",
+        a3: "No. The input year is used only for instant browser-side calculation and is not stored on the server."
+      },
+      es: {
+        htmlLang: "es",
+        pageTitle: "Preguntas Frecuentes",
+        pageDesc: "Preguntas y respuestas comunes sobre la calculadora del zodiaco coreano.",
+        faqTitle: "Preguntas Frecuentes",
+        q1: "Es diferente de la interpretacion lunar?",
+        a1: "Si. Esta herramienta es una consulta rapida basada en el ano solar. La interpretacion detallada puede variar.",
+        q2: "Por que los anuncios no aparecen de inmediato?",
+        a2: "La visibilidad depende del estado de revision de AdSense, la configuracion del bloque, las politicas y el trafico.",
+        q3: "Guardan mi ano de nacimiento?",
+        a3: "No. El ano ingresado se usa solo para calculo inmediato en el navegador y no se guarda en el servidor."
+      }
+    };
+
+    function setLanguage(lang) {
+      const t = ui[lang];
+      document.documentElement.lang = t.htmlLang;
+      document.getElementById("pageTitle").textContent = t.pageTitle;
+      document.getElementById("pageDesc").textContent = t.pageDesc;
+      document.getElementById("faqTitle").textContent = t.faqTitle;
+      document.getElementById("q1").textContent = t.q1;
+      document.getElementById("a1").textContent = t.a1;
+      document.getElementById("q2").textContent = t.q2;
+      document.getElementById("a2").textContent = t.a2;
+      document.getElementById("q3").textContent = t.q3;
+      document.getElementById("a3").textContent = t.a3;
+
+      document.querySelectorAll(".lang-btn").forEach((btn) => {
+        btn.classList.toggle("active", btn.dataset.lang === lang);
+      });
+    }
+
+    document.querySelector(".lang-switch").addEventListener("click", (event) => {
+      const btn = event.target.closest(".lang-btn");
+      if (!btn) {
+        return;
+      }
+      setLanguage(btn.dataset.lang);
+    });
+
+    setLanguage("ko");
+
+    try {
+      (window.adsbygoogle = window.adsbygoogle || []).push({});
+    } catch (error) {
+      // Ignore init errors in local/dev environments.
+    }
+  </script>
+</body>
+</html>
