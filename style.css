@@ -217,6 +217,29 @@ input {
   gap: 8px;
 }
 
+.zodiac-meaning {
+  margin: 0;
+  font-weight: 600;
+  color: #334155;
+}
+
+.zodiac-traits {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.trait-chip {
+  display: inline-block;
+  padding: 4px 8px;
+  border-radius: 999px;
+  border: 1px solid #cbd5e1;
+  background: #ffffff;
+  color: #334155;
+  font-size: 0.82rem;
+  font-weight: 600;
+}
+
 .color-tag {
   margin-top: 8px;
   display: inline-block;

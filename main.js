@@ -147,6 +147,69 @@ const imageFileOverrides = {
   "yellow horse": "yeloow horse.jpg"
 };
 
+const zodiacDetails = {
+  rat: {
+    ko: { meaning: "기민함과 시작의 상징", traits: ["영리함", "적응력"] },
+    en: { meaning: "Symbol of agility and new beginnings", traits: ["Smart", "Adaptable"] },
+    es: { meaning: "Simbolo de agilidad y nuevos comienzos", traits: ["Inteligente", "Adaptable"] }
+  },
+  ox: {
+    ko: { meaning: "성실함과 꾸준함의 상징", traits: ["인내", "책임감"] },
+    en: { meaning: "Symbol of diligence and consistency", traits: ["Patient", "Reliable"] },
+    es: { meaning: "Simbolo de diligencia y constancia", traits: ["Paciente", "Confiable"] }
+  },
+  tiger: {
+    ko: { meaning: "용기와 추진력의 상징", traits: ["결단력", "리더십"] },
+    en: { meaning: "Symbol of courage and momentum", traits: ["Bold", "Leadership"] },
+    es: { meaning: "Simbolo de coraje e impulso", traits: ["Valiente", "Liderazgo"] }
+  },
+  rabbit: {
+    ko: { meaning: "온화함과 조화의 상징", traits: ["섬세함", "배려"] },
+    en: { meaning: "Symbol of gentleness and harmony", traits: ["Sensitive", "Considerate"] },
+    es: { meaning: "Simbolo de suavidad y armonia", traits: ["Sensible", "Considerado"] }
+  },
+  dragon: {
+    ko: { meaning: "권위와 비상의 상징", traits: ["카리스마", "도전정신"] },
+    en: { meaning: "Symbol of authority and ambition", traits: ["Charismatic", "Ambitious"] },
+    es: { meaning: "Simbolo de autoridad y ambicion", traits: ["Carismatico", "Ambicioso"] }
+  },
+  snake: {
+    ko: { meaning: "지혜와 통찰의 상징", traits: ["분석력", "신중함"] },
+    en: { meaning: "Symbol of wisdom and insight", traits: ["Analytical", "Prudent"] },
+    es: { meaning: "Simbolo de sabiduria y percepcion", traits: ["Analitico", "Prudente"] }
+  },
+  horse: {
+    ko: { meaning: "자유와 활력의 상징", traits: ["활동성", "독립성"] },
+    en: { meaning: "Symbol of freedom and vitality", traits: ["Energetic", "Independent"] },
+    es: { meaning: "Simbolo de libertad y vitalidad", traits: ["Energetico", "Independiente"] }
+  },
+  goat: {
+    ko: { meaning: "온순함과 예술성의 상징", traits: ["공감력", "감수성"] },
+    en: { meaning: "Symbol of kindness and artistry", traits: ["Empathetic", "Artistic"] },
+    es: { meaning: "Simbolo de amabilidad y arte", traits: ["Empatico", "Artistico"] }
+  },
+  monkey: {
+    ko: { meaning: "재치와 응용력의 상징", traits: ["유연성", "창의성"] },
+    en: { meaning: "Symbol of wit and versatility", traits: ["Flexible", "Creative"] },
+    es: { meaning: "Simbolo de ingenio y versatilidad", traits: ["Flexible", "Creativo"] }
+  },
+  rooster: {
+    ko: { meaning: "정확함과 책임의 상징", traits: ["성실성", "자기관리"] },
+    en: { meaning: "Symbol of precision and responsibility", traits: ["Disciplined", "Responsible"] },
+    es: { meaning: "Simbolo de precision y responsabilidad", traits: ["Disciplinado", "Responsable"] }
+  },
+  dog: {
+    ko: { meaning: "신의와 정의의 상징", traits: ["충성심", "정직함"] },
+    en: { meaning: "Symbol of loyalty and justice", traits: ["Loyal", "Honest"] },
+    es: { meaning: "Simbolo de lealtad y justicia", traits: ["Leal", "Honesto"] }
+  },
+  pig: {
+    ko: { meaning: "풍요와 복의 상징", traits: ["낙천성", "포용력"] },
+    en: { meaning: "Symbol of abundance and fortune", traits: ["Optimistic", "Generous"] },
+    es: { meaning: "Simbolo de abundancia y fortuna", traits: ["Optimista", "Generoso"] }
+  }
+};
+
 function getGanji(year) {
   const stemIndex = ((year - 4) % 10 + 10) % 10;
   const branchIndex = ((year - 4) % 12 + 12) % 12;
@@ -213,6 +276,7 @@ function renderSuccess(year) {
   const coloredName = text.formatName(colorName, animalName);
   const stemColorEn = ganji.stem.color.en.toLowerCase();
   const animalKey = ganji.animal.en.toLowerCase();
+  const detail = zodiacDetails[animalKey]?.[currentLang];
   const animalFileName = animalFileNameMap[animalKey];
   const defaultImageFileName = `${stemColorEn} ${animalFileName}.jpg`;
   const imageFileName = imageFileOverrides[`${stemColorEn} ${animalFileName}`] || defaultImageFileName;
@@ -228,6 +292,10 @@ function renderSuccess(year) {
       <div class="result-meta">
         <p class="zodiac-name">${text.resultLine(year, coloredName)}</p>
         <span class="color-tag" style="background:${ganji.stem.colorHex};">${text.colorLabel(colorName)}</span>
+        <p class="zodiac-meaning">${detail ? detail.meaning : ""}</p>
+        <div class="zodiac-traits">
+          ${detail ? detail.traits.map((trait) => `<span class="trait-chip">${trait}</span>`).join("") : ""}
+        </div>
         <small>${text.detail(ganji.stem.name, animalName)}</small>
       </div>
     </div>
