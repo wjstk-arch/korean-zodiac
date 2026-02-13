@@ -1,14 +1,31 @@
 <!doctype html>
-<html lang="en">
+<html lang="ko">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Hello World</title>
-  <link href='/style.css' rel='stylesheet'>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>띠 찾기</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h1>Hello, world!</h1>
-  <button onclick="console.log('hello');">Press me</button>
-  <script defer type="text/javascript" src="/main.js"></script>
+  <main class="app">
+    <div class="lang-switch" role="group" aria-label="Language switcher">
+      <button type="button" class="lang-btn active" data-lang="ko">한국어</button>
+      <button type="button" class="lang-btn" data-lang="en">English</button>
+      <button type="button" class="lang-btn" data-lang="es">Español</button>
+    </div>
+
+    <h1 id="titleText">출생년도 띠 찾기</h1>
+    <p id="descText" class="desc">출생년도를 입력하면 띠와 오행 색상을 함께 보여줍니다.</p>
+
+    <form id="zodiacForm" class="form">
+      <label id="yearLabel" for="birthYear">출생년도</label>
+      <input id="birthYear" name="birthYear" type="text" inputmode="numeric" placeholder="예: 2026" required>
+      <button id="submitBtn" class="submit-btn" type="submit">확인하기</button>
+    </form>
+
+    <section id="result" class="result" aria-live="polite"></section>
+  </main>
+
+  <script src="main.js"></script>
 </body>
 </html>
