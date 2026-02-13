@@ -12,27 +12,39 @@
   <main class="app subpage">
     <header class="site-header">
       <p class="eyebrow">Contact</p>
-      <h1>문의</h1>
-      <p class="desc">오류 제보, 번역 수정, 콘텐츠 제안을 보내주세요.</p>
+      <h1 id="pageTitle">문의</h1>
+      <p id="pageDesc" class="desc">오류 제보, 번역 수정, 콘텐츠 제안을 보내주세요.</p>
+      <div class="lang-switch" role="group" aria-label="Language switcher">
+        <button type="button" class="lang-btn active" data-lang="ko">한국어</button>
+        <button type="button" class="lang-btn" data-lang="en">English</button>
+        <button type="button" class="lang-btn" data-lang="es">Español</button>
+      </div>
       <nav class="top-nav" aria-label="Main">
-        <a href="index.html">홈</a>
-        <a href="about.html">사이트 소개</a>
-        <a href="privacy.html">개인정보처리방침</a>
+        <a id="navHome" href="index.html">홈</a>
+        <a id="navAbout" href="about.html">사이트 소개</a>
+        <a id="navPrivacy" href="privacy.html">개인정보처리방침</a>
       </nav>
     </header>
 
     <section class="panel info-block">
-      <h2>연락 방법</h2>
-      <p>이메일: <a href="mailto:contact@korean-zodiac.example">contact@korean-zodiac.example</a></p>
-      <h2>응답 범위</h2>
-      <p>띠 계산 오류, 이미지 오류, 언어 표현 오류, 정책 페이지 관련 문의를 우선 처리합니다.</p>
-      <h2>처리 시간</h2>
-      <p>영업일 기준 3일 이내 1차 답변을 목표로 합니다.</p>
+      <h2 id="sec1Title">연락 방법</h2>
+      <p><span id="emailLabel">이메일</span>: <a href="mailto:contact@korean-zodiac.example">contact@korean-zodiac.example</a></p>
+      <h2 id="sec2Title">응답 범위</h2>
+      <p id="sec2Body">띠 계산 오류, 이미지 오류, 언어 표현 오류, 정책 페이지 관련 문의를 우선 처리합니다.</p>
+      <h2 id="sec3Title">처리 시간</h2>
+      <p id="sec3Body">영업일 기준 3일 이내 1차 답변을 목표로 합니다.</p>
     </section>
-
-    <footer class="site-footer">
-      <p><a href="index.html">홈으로 돌아가기</a></p>
-    </footer>
   </main>
+
+  <script>
+    const ui = {
+      ko: { htmlLang: "ko", pageTitle: "문의", pageDesc: "오류 제보, 번역 수정, 콘텐츠 제안을 보내주세요.", navHome: "홈", navAbout: "사이트 소개", navPrivacy: "개인정보처리방침", sec1Title: "연락 방법", emailLabel: "이메일", sec2Title: "응답 범위", sec2Body: "띠 계산 오류, 이미지 오류, 언어 표현 오류, 정책 페이지 관련 문의를 우선 처리합니다.", sec3Title: "처리 시간", sec3Body: "영업일 기준 3일 이내 1차 답변을 목표로 합니다." },
+      en: { htmlLang: "en", pageTitle: "Contact", pageDesc: "Send bug reports, translation fixes, and content suggestions.", navHome: "Home", navAbout: "About", navPrivacy: "Privacy", sec1Title: "How to Contact", emailLabel: "Email", sec2Title: "Response Scope", sec2Body: "We prioritize zodiac calculation issues, image issues, language fixes, and policy-page inquiries.", sec3Title: "Response Time", sec3Body: "Our target is a first response within 3 business days." },
+      es: { htmlLang: "es", pageTitle: "Contacto", pageDesc: "Envia reportes de errores, correcciones de traduccion y sugerencias de contenido.", navHome: "Inicio", navAbout: "Acerca de", navPrivacy: "Privacidad", sec1Title: "Como contactar", emailLabel: "Correo", sec2Title: "Alcance de respuesta", sec2Body: "Priorizamos errores de calculo, problemas de imagen, correcciones de idioma y consultas de politicas.", sec3Title: "Tiempo de respuesta", sec3Body: "Nuestro objetivo es responder por primera vez en un plazo de 3 dias habiles." }
+    };
+    function setLanguage(lang) { const t=ui[lang]; document.documentElement.lang=t.htmlLang; Object.keys(t).forEach((k)=>{ if(k==='htmlLang') return; const n=document.getElementById(k); if(n) n.textContent=t[k]; }); document.querySelectorAll('.lang-btn').forEach((b)=>b.classList.toggle('active', b.dataset.lang===lang)); }
+    document.querySelector('.lang-switch').addEventListener('click', (e)=>{ const b=e.target.closest('.lang-btn'); if(!b) return; setLanguage(b.dataset.lang); });
+    setLanguage('ko');
+  </script>
 </body>
 </html>

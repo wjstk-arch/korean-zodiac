@@ -43,7 +43,6 @@ const uiText = {
     submit: "확인하기",
     invalidYear: "올바른 출생년도를 입력해 주세요.",
     footerNote: "콘텐츠 품질 개선을 위해 계산 원리와 기준을 지속적으로 업데이트합니다.",
-    footerKoreanZodiac: "Korean Zodiac",
     footerAbout: "About",
     footerPrivacy: "Privacy",
     footerContact: "Contact",
@@ -68,7 +67,6 @@ const uiText = {
     submit: "Check",
     invalidYear: "Please enter a valid birth year.",
     footerNote: "We continuously improve content quality and keep calculation rules transparent.",
-    footerKoreanZodiac: "Korean Zodiac",
     footerAbout: "About",
     footerPrivacy: "Privacy",
     footerContact: "Contact",
@@ -93,7 +91,6 @@ const uiText = {
     submit: "Ver",
     invalidYear: "Ingresa un ano de nacimiento valido.",
     footerNote: "Mejoramos continuamente la calidad del contenido y mantenemos claras las reglas de calculo.",
-    footerKoreanZodiac: "Zodiaco Coreano",
     footerAbout: "Acerca de",
     footerPrivacy: "Privacidad",
     footerContact: "Contacto",
@@ -121,7 +118,6 @@ const topNavAbout = document.getElementById("topNavAbout");
 const topNavPrivacy = document.getElementById("topNavPrivacy");
 const topNavContact = document.getElementById("topNavContact");
 const footerNote = document.getElementById("footerNote");
-const footerKoreanZodiac = document.getElementById("footerKoreanZodiac");
 const footerAbout = document.getElementById("footerAbout");
 const footerPrivacy = document.getElementById("footerPrivacy");
 const footerContact = document.getElementById("footerContact");
@@ -178,7 +174,6 @@ function setLanguage(lang) {
   topNavPrivacy.textContent = text.topNavPrivacy;
   topNavContact.textContent = text.topNavContact;
   footerNote.textContent = text.footerNote;
-  footerKoreanZodiac.textContent = text.footerKoreanZodiac;
   footerAbout.textContent = text.footerAbout;
   footerPrivacy.textContent = text.footerPrivacy;
   footerContact.textContent = text.footerContact;

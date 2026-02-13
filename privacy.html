@@ -12,31 +12,43 @@
   <main class="app subpage">
     <header class="site-header">
       <p class="eyebrow">Privacy Policy</p>
-      <h1>개인정보처리방침</h1>
+      <h1 id="pageTitle">개인정보처리방침</h1>
+      <div class="lang-switch" role="group" aria-label="Language switcher">
+        <button type="button" class="lang-btn active" data-lang="ko">한국어</button>
+        <button type="button" class="lang-btn" data-lang="en">English</button>
+        <button type="button" class="lang-btn" data-lang="es">Español</button>
+      </div>
       <nav class="top-nav" aria-label="Main">
-        <a href="index.html">홈</a>
-        <a href="about.html">사이트 소개</a>
-        <a href="contact.html">문의</a>
+        <a id="navHome" href="index.html">홈</a>
+        <a id="navAbout" href="about.html">사이트 소개</a>
+        <a id="navContact" href="contact.html">문의</a>
       </nav>
     </header>
 
     <section class="panel info-block">
-      <h2>1. 수집하는 정보</h2>
-      <p>본 사이트는 출생연도 입력값을 서버에 저장하지 않습니다. 입력값은 브라우저 내 계산에만 사용됩니다.</p>
-      <h2>2. 로그 및 쿠키</h2>
-      <p>호스팅/분석/광고 도구에서 일반적인 접속 로그, 쿠키, 기기 정보가 처리될 수 있습니다.</p>
-      <h2>3. 광고 서비스</h2>
-      <p>Google AdSense를 사용할 수 있으며, Google은 쿠키를 통해 사용자 관심 기반 광고를 제공할 수 있습니다.</p>
-      <h2>4. 사용자 선택권</h2>
-      <p>사용자는 브라우저 설정을 통해 쿠키를 제한하거나 삭제할 수 있습니다.</p>
-      <h2>5. 문의</h2>
-      <p>개인정보 관련 문의는 Contact 페이지를 통해 접수할 수 있습니다.</p>
-      <p class="muted">최종 업데이트: 2026-02-13</p>
+      <h2 id="sec1Title">1. 수집하는 정보</h2>
+      <p id="sec1Body">본 사이트는 출생연도 입력값을 서버에 저장하지 않습니다. 입력값은 브라우저 내 계산에만 사용됩니다.</p>
+      <h2 id="sec2Title">2. 로그 및 쿠키</h2>
+      <p id="sec2Body">호스팅/분석/광고 도구에서 일반적인 접속 로그, 쿠키, 기기 정보가 처리될 수 있습니다.</p>
+      <h2 id="sec3Title">3. 광고 서비스</h2>
+      <p id="sec3Body">Google AdSense를 사용할 수 있으며, Google은 쿠키를 통해 사용자 관심 기반 광고를 제공할 수 있습니다.</p>
+      <h2 id="sec4Title">4. 사용자 선택권</h2>
+      <p id="sec4Body">사용자는 브라우저 설정을 통해 쿠키를 제한하거나 삭제할 수 있습니다.</p>
+      <h2 id="sec5Title">5. 문의</h2>
+      <p id="sec5Body">개인정보 관련 문의는 Contact 페이지를 통해 접수할 수 있습니다.</p>
+      <p class="muted">Last updated: 2026-02-13</p>
     </section>
-
-    <footer class="site-footer">
-      <p><a href="index.html">홈으로 돌아가기</a></p>
-    </footer>
   </main>
+
+  <script>
+    const ui = {
+      ko: { htmlLang: "ko", pageTitle: "개인정보처리방침", navHome: "홈", navAbout: "사이트 소개", navContact: "문의", sec1Title: "1. 수집하는 정보", sec1Body: "본 사이트는 출생연도 입력값을 서버에 저장하지 않습니다. 입력값은 브라우저 내 계산에만 사용됩니다.", sec2Title: "2. 로그 및 쿠키", sec2Body: "호스팅/분석/광고 도구에서 일반적인 접속 로그, 쿠키, 기기 정보가 처리될 수 있습니다.", sec3Title: "3. 광고 서비스", sec3Body: "Google AdSense를 사용할 수 있으며, Google은 쿠키를 통해 사용자 관심 기반 광고를 제공할 수 있습니다.", sec4Title: "4. 사용자 선택권", sec4Body: "사용자는 브라우저 설정을 통해 쿠키를 제한하거나 삭제할 수 있습니다.", sec5Title: "5. 문의", sec5Body: "개인정보 관련 문의는 Contact 페이지를 통해 접수할 수 있습니다." },
+      en: { htmlLang: "en", pageTitle: "Privacy Policy", navHome: "Home", navAbout: "About", navContact: "Contact", sec1Title: "1. Information We Collect", sec1Body: "This site does not store the birth year input on the server. The value is used only for in-browser calculation.", sec2Title: "2. Logs and Cookies", sec2Body: "Hosting, analytics, and advertising tools may process basic logs, cookies, and device information.", sec3Title: "3. Advertising", sec3Body: "We may use Google AdSense, and Google may provide interest-based ads using cookies.", sec4Title: "4. User Choices", sec4Body: "Users can restrict or delete cookies through browser settings.", sec5Title: "5. Contact", sec5Body: "For privacy-related inquiries, please use the Contact page." },
+      es: { htmlLang: "es", pageTitle: "Politica de Privacidad", navHome: "Inicio", navAbout: "Acerca de", navContact: "Contacto", sec1Title: "1. Informacion que recopilamos", sec1Body: "Este sitio no guarda el ano de nacimiento en el servidor. El valor se usa solo para calculo en el navegador.", sec2Title: "2. Registros y cookies", sec2Body: "Las herramientas de hosting, analitica y publicidad pueden procesar registros basicos, cookies e informacion del dispositivo.", sec3Title: "3. Publicidad", sec3Body: "Podemos usar Google AdSense y Google puede mostrar anuncios basados en intereses mediante cookies.", sec4Title: "4. Opciones del usuario", sec4Body: "El usuario puede restringir o eliminar cookies desde la configuracion del navegador.", sec5Title: "5. Contacto", sec5Body: "Para consultas de privacidad, usa la pagina de Contacto." }
+    };
+    function setLanguage(lang) { const t = ui[lang]; document.documentElement.lang = t.htmlLang; Object.keys(t).forEach((k)=>{ if(k==='htmlLang') return; const n=document.getElementById(k); if(n) n.textContent=t[k]; }); document.querySelectorAll('.lang-btn').forEach((b)=>b.classList.toggle('active', b.dataset.lang===lang)); }
+    document.querySelector('.lang-switch').addEventListener('click', (e)=>{ const b=e.target.closest('.lang-btn'); if(!b) return; setLanguage(b.dataset.lang); });
+    setLanguage('ko');
+  </script>
 </body>
 </html>
