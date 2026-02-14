@@ -121,10 +121,12 @@ const footerNote = document.getElementById("footerNote");
 const footerAbout = document.getElementById("footerAbout");
 const footerPrivacy = document.getElementById("footerPrivacy");
 const footerContact = document.getElementById("footerContact");
+const mainAdWrap = document.getElementById("mainAdWrap");
 
 let currentLang = "ko";
 let lastYear = null;
 let resultState = "empty";
+let adsInitialized = false;
 const LANG_STORAGE_KEY = "site_lang";
 
 const animalFileNameMap = {
@@ -266,6 +268,9 @@ function renderError() {
   resultState = "error";
   result.style.backgroundColor = "#f8fafc";
   result.innerHTML = `<p>${uiText[currentLang].invalidYear}</p>`;
+  if (mainAdWrap) {
+    mainAdWrap.hidden = true;
+  }
 }
 
 function renderSuccess(year) {
@@ -300,6 +305,7 @@ function renderSuccess(year) {
       </div>
     </div>
   `;
+  showAdAfterContent();
 }
 
 form.addEventListener("submit", (event) => {
@@ -335,18 +341,31 @@ if (langSwitch) {
   });
 }
 
-function initAds() {
+function initAdsOnce() {
+  if (adsInitialized) {
+    return;
+  }
   const adUnits = document.querySelectorAll(".adsbygoogle");
   adUnits.forEach(() => {
     try {
       (window.adsbygoogle = window.adsbygoogle || []).push({});
+      adsInitialized = true;
     } catch (error) {
       // Ignore init errors in local/dev environments.
     }
   });
 }
 
-window.addEventListener("load", initAds);
+function showAdAfterContent() {
+  if (!mainAdWrap || resultState !== "success") {
+    return;
+  }
+  if (result.textContent.trim().length < 20) {
+    return;
+  }
+  mainAdWrap.hidden = false;
+  initAdsOnce();
+}
 
 function getSavedLanguage() {
   try {
