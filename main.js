@@ -46,7 +46,7 @@ const uiText = {
     footerAbout: "About",
     footerPrivacy: "Privacy",
     footerContact: "Contact",
-    personalityTitle: "성격 유형 (MBTI 스타일)",
+    personalityTitle: "성격 유형",
     fortuneTitle: (year) => `${year}년 운세`,
     keywordsLabel: "핵심 키워드",
     cautionLabel: "주의 포인트",
@@ -75,7 +75,7 @@ const uiText = {
     footerAbout: "About",
     footerPrivacy: "Privacy",
     footerContact: "Contact",
-    personalityTitle: "Personality Type (MBTI-style)",
+    personalityTitle: "Personality Type",
     fortuneTitle: (year) => `${year} Fortune`,
     keywordsLabel: "Keywords",
     cautionLabel: "Watch-out",
@@ -104,7 +104,7 @@ const uiText = {
     footerAbout: "Acerca de",
     footerPrivacy: "Privacidad",
     footerContact: "Contacto",
-    personalityTitle: "Tipo de Personalidad (estilo MBTI)",
+    personalityTitle: "Tipo de Personalidad",
     fortuneTitle: (year) => `Fortuna ${year}`,
     keywordsLabel: "Palabras clave",
     cautionLabel: "Punto de cuidado",
@@ -259,9 +259,9 @@ const zodiacPersonality = {
     es: { type: "S-INS Analista", summary: "Analizas a fondo y encuentras lo esencial.", keywords: ["Analisis", "Enfoque", "Intuicion"], caution: "Define un momento de decision, no solo mas analisis." }
   },
   horse: {
-    ko: { type: "H-ENE 행동형", summary: "에너지와 속도로 분위기를 주도하는 타입입니다.", keywords: ["활동성", "독립성", "실행력"], caution: "중간 점검 없이 달리면 실수가 커질 수 있습니다." },
-    en: { type: "H-ENE Action Runner", summary: "You lead with energy, speed, and action.", keywords: ["Energy", "Independence", "Execution"], caution: "Add checkpoints to prevent avoidable mistakes." },
-    es: { type: "H-ENE Ejecutor", summary: "Lideras con energia, velocidad y accion.", keywords: ["Energia", "Independencia", "Ejecucion"], caution: "Incluye revisiones para evitar errores." }
+    ko: { type: "H-ENE 추진가형", summary: "에너지와 속도로 분위기를 주도하는 타입입니다.", keywords: ["활동성", "독립성", "실행력"], caution: "중간 점검 없이 달리면 실수가 커질 수 있습니다." },
+    en: { type: "H-ENE Momentum Driver", summary: "You lead with energy, speed, and action.", keywords: ["Energy", "Independence", "Execution"], caution: "Add checkpoints to prevent avoidable mistakes." },
+    es: { type: "H-ENE Impulsor", summary: "Lideras con energia, velocidad y accion.", keywords: ["Energia", "Independencia", "Ejecucion"], caution: "Incluye revisiones para evitar errores." }
   },
   goat: {
     ko: { type: "G-ART 감성형", summary: "섬세한 감각으로 팀의 분위기를 살리는 타입입니다.", keywords: ["감수성", "공감", "창의성"], caution: "감정 소모를 줄이기 위해 경계를 설정하세요." },
