@@ -46,6 +46,11 @@ const uiText = {
     footerAbout: "About",
     footerPrivacy: "Privacy",
     footerContact: "Contact",
+    personalityTitle: "성격 유형 (MBTI 스타일)",
+    fortuneTitle: (year) => `${year}년 운세`,
+    keywordsLabel: "핵심 키워드",
+    cautionLabel: "주의 포인트",
+    entertainmentNote: "참고용 해석입니다.",
     resultLine: (year, name) => `${year}년생: <strong>${name}</strong>`,
     colorLabel: (name) => `색상: ${name}`,
     detail: (stem, animal) => `천간: ${stem} / 띠: ${animal}띠`,
@@ -70,6 +75,11 @@ const uiText = {
     footerAbout: "About",
     footerPrivacy: "Privacy",
     footerContact: "Contact",
+    personalityTitle: "Personality Type (MBTI-style)",
+    fortuneTitle: (year) => `${year} Fortune`,
+    keywordsLabel: "Keywords",
+    cautionLabel: "Watch-out",
+    entertainmentNote: "For entertainment purposes.",
     resultLine: (year, name) => `Born in ${year}: <strong>${name}</strong>`,
     colorLabel: (name) => `Color: ${name}`,
     detail: (stem, animal) => `Heavenly Stem: ${stem} / Zodiac: ${animal}`,
@@ -94,6 +104,11 @@ const uiText = {
     footerAbout: "Acerca de",
     footerPrivacy: "Privacidad",
     footerContact: "Contacto",
+    personalityTitle: "Tipo de Personalidad (estilo MBTI)",
+    fortuneTitle: (year) => `Fortuna ${year}`,
+    keywordsLabel: "Palabras clave",
+    cautionLabel: "Punto de cuidado",
+    entertainmentNote: "Interpretacion solo de referencia.",
     resultLine: (year, name) => `Nacido en ${year}: <strong>${name}</strong>`,
     colorLabel: (name) => `Color: ${name}`,
     detail: (stem, animal) => `Tronco celeste: ${stem} / Zodiaco: ${animal}`,
@@ -212,6 +227,84 @@ const zodiacDetails = {
   }
 };
 
+const zodiacPersonality = {
+  rat: {
+    ko: { type: "R-APT 전략가형", summary: "빠르게 상황을 읽고 기회를 설계하는 타입입니다.", keywords: ["판단력", "기획력", "순발력"], caution: "속도를 내기 전에 우선순위를 한 번 더 정리하세요." },
+    en: { type: "R-APT Strategist", summary: "You read situations fast and design opportunities.", keywords: ["Judgment", "Planning", "Agility"], caution: "Recheck priorities before moving too fast." },
+    es: { type: "R-APT Estratega", summary: "Lees rapido la situacion y diseñas oportunidades.", keywords: ["Juicio", "Planificacion", "Agilidad"], caution: "Revisa prioridades antes de avanzar demasiado rapido." }
+  },
+  ox: {
+    ko: { type: "O-STE 안정형", summary: "꾸준함과 신뢰로 결과를 쌓아가는 타입입니다.", keywords: ["성실성", "지속력", "책임감"], caution: "완벽주의로 속도가 늦어지지 않게 하세요." },
+    en: { type: "O-STE Stable Builder", summary: "You build outcomes through consistency and reliability.", keywords: ["Diligence", "Stamina", "Responsibility"], caution: "Avoid slowing down due to perfectionism." },
+    es: { type: "O-STE Constructor Estable", summary: "Construyes resultados con constancia y confianza.", keywords: ["Diligencia", "Resistencia", "Responsabilidad"], caution: "Evita frenar por perfeccionismo." }
+  },
+  tiger: {
+    ko: { type: "T-DRV 도전형", summary: "강한 추진력으로 판을 바꾸는 타입입니다.", keywords: ["결단력", "담대함", "리더십"], caution: "강한 표현보다 팀 호흡을 먼저 확인하세요." },
+    en: { type: "T-DRV Challenger", summary: "You change momentum with bold drive.", keywords: ["Decisiveness", "Boldness", "Leadership"], caution: "Check team rhythm before pushing hard." },
+    es: { type: "T-DRV Retador", summary: "Cambias el ritmo con impulso y valentia.", keywords: ["Decision", "Audacia", "Liderazgo"], caution: "Revisa el ritmo del equipo antes de presionar." }
+  },
+  rabbit: {
+    ko: { type: "B-HRM 조율형", summary: "관계를 부드럽게 연결해 균형을 만드는 타입입니다.", keywords: ["공감", "배려", "조화"], caution: "모두를 맞추려다 본인 결정을 미루지 마세요." },
+    en: { type: "B-HRM Harmonizer", summary: "You create balance by connecting people smoothly.", keywords: ["Empathy", "Care", "Harmony"], caution: "Do not delay your own decision for everyone." },
+    es: { type: "B-HRM Armonizador", summary: "Creas equilibrio conectando a las personas.", keywords: ["Empatia", "Cuidado", "Armonia"], caution: "No postergues tu decision por complacer a todos." }
+  },
+  dragon: {
+    ko: { type: "D-VIS 비전형", summary: "큰 그림을 제시하고 분위기를 끌어올리는 타입입니다.", keywords: ["카리스마", "비전", "확장성"], caution: "큰 목표를 작은 실행 단위로 나누세요." },
+    en: { type: "D-VIS Vision Driver", summary: "You lift momentum with a strong big-picture vision.", keywords: ["Charisma", "Vision", "Scalability"], caution: "Break big goals into smaller execution steps." },
+    es: { type: "D-VIS Visionario", summary: "Elevas el impulso con una vision amplia.", keywords: ["Carisma", "Vision", "Expansion"], caution: "Divide metas grandes en pasos pequenos." }
+  },
+  snake: {
+    ko: { type: "S-INS 통찰형", summary: "깊게 분석하고 본질을 찾아내는 타입입니다.", keywords: ["분석력", "집중력", "통찰"], caution: "정보 수집만 하지 말고 결정 시점을 정하세요." },
+    en: { type: "S-INS Insight Analyst", summary: "You dive deep and find the core of issues.", keywords: ["Analysis", "Focus", "Insight"], caution: "Set a decision point, not just more research." },
+    es: { type: "S-INS Analista", summary: "Analizas a fondo y encuentras lo esencial.", keywords: ["Analisis", "Enfoque", "Intuicion"], caution: "Define un momento de decision, no solo mas analisis." }
+  },
+  horse: {
+    ko: { type: "H-ENE 행동형", summary: "에너지와 속도로 분위기를 주도하는 타입입니다.", keywords: ["활동성", "독립성", "실행력"], caution: "중간 점검 없이 달리면 실수가 커질 수 있습니다." },
+    en: { type: "H-ENE Action Runner", summary: "You lead with energy, speed, and action.", keywords: ["Energy", "Independence", "Execution"], caution: "Add checkpoints to prevent avoidable mistakes." },
+    es: { type: "H-ENE Ejecutor", summary: "Lideras con energia, velocidad y accion.", keywords: ["Energia", "Independencia", "Ejecucion"], caution: "Incluye revisiones para evitar errores." }
+  },
+  goat: {
+    ko: { type: "G-ART 감성형", summary: "섬세한 감각으로 팀의 분위기를 살리는 타입입니다.", keywords: ["감수성", "공감", "창의성"], caution: "감정 소모를 줄이기 위해 경계를 설정하세요." },
+    en: { type: "G-ART Sensitive Creator", summary: "You improve team atmosphere with refined sensitivity.", keywords: ["Sensitivity", "Empathy", "Creativity"], caution: "Set boundaries to avoid emotional burnout." },
+    es: { type: "G-ART Creador Sensible", summary: "Mejoras el ambiente con sensibilidad fina.", keywords: ["Sensibilidad", "Empatia", "Creatividad"], caution: "Define limites para evitar desgaste emocional." }
+  },
+  monkey: {
+    ko: { type: "M-FLX 전환형", summary: "변화에 빠르게 대응하며 해법을 찾아내는 타입입니다.", keywords: ["재치", "유연성", "응용력"], caution: "아이디어를 끝까지 실행하는 루틴을 만드세요." },
+    en: { type: "M-FLX Adaptive Solver", summary: "You react fast to change and find practical solutions.", keywords: ["Wit", "Flexibility", "Versatility"], caution: "Build a routine to finish what you start." },
+    es: { type: "M-FLX Solucionador Flexible", summary: "Respondes rapido al cambio y encuentras soluciones.", keywords: ["Ingenio", "Flexibilidad", "Versatilidad"], caution: "Crea una rutina para cerrar lo que empiezas." }
+  },
+  rooster: {
+    ko: { type: "R-PRC 정밀형", summary: "기준과 디테일을 지켜 완성도를 높이는 타입입니다.", keywords: ["정확성", "규율", "책임"], caution: "비판보다 개선 제안의 비율을 높이세요." },
+    en: { type: "R-PRC Precision Keeper", summary: "You raise quality through standards and detail.", keywords: ["Accuracy", "Discipline", "Responsibility"], caution: "Offer more improvement ideas than criticism." },
+    es: { type: "R-PRC Preciso", summary: "Elevas la calidad con estandares y detalle.", keywords: ["Precision", "Disciplina", "Responsabilidad"], caution: "Da mas propuestas de mejora que critica." }
+  },
+  dog: {
+    ko: { type: "D-TRU 신뢰형", summary: "원칙과 신의를 지키며 주변을 안정시키는 타입입니다.", keywords: ["충성", "정의감", "신뢰"], caution: "과도한 책임감으로 본인 휴식을 놓치지 마세요." },
+    en: { type: "D-TRU Trust Guardian", summary: "You stabilize teams with loyalty and principles.", keywords: ["Loyalty", "Fairness", "Trust"], caution: "Do not sacrifice your recovery for duty." },
+    es: { type: "D-TRU Guardian Confiable", summary: "Aportas estabilidad con lealtad y principios.", keywords: ["Lealtad", "Justicia", "Confianza"], caution: "No sacrifiques tu descanso por responsabilidad." }
+  },
+  pig: {
+    ko: { type: "P-ABN 포용형", summary: "따뜻한 에너지로 관계와 기회를 키우는 타입입니다.", keywords: ["포용력", "낙천성", "관계력"], caution: "좋은 기회라도 기준 없이 수락하지 마세요." },
+    en: { type: "P-ABN Generous Connector", summary: "You grow relationships and chances with warm energy.", keywords: ["Generosity", "Optimism", "Networking"], caution: "Do not accept every opportunity without criteria." },
+    es: { type: "P-ABN Conector Generoso", summary: "Haces crecer relaciones y oportunidades con calidez.", keywords: ["Generosidad", "Optimismo", "Relaciones"], caution: "No aceptes todo sin criterios claros." }
+  }
+};
+
+const zodiacFortune = {
+  rat: { ko: "네트워크 확장운이 강합니다. 작은 협업 제안이 큰 기회로 연결될 수 있습니다.", en: "Networking luck is strong. Small collaborations can grow into major opportunities.", es: "La suerte social es fuerte. Colaboraciones pequenas pueden crecer mucho." },
+  ox: { ko: "꾸준히 해오던 일이 성과로 보이기 시작합니다. 루틴 유지가 핵심입니다.", en: "Steady work starts turning into visible results. Consistent routines are key.", es: "El trabajo constante empieza a rendir frutos. Mantener rutina es clave." },
+  tiger: { ko: "도전운이 상승하지만 무리한 확장은 금물입니다. 우선순위 1~2개에 집중하세요.", en: "Challenge luck rises, but avoid overexpansion. Focus on one or two priorities.", es: "Sube la energia de reto, pero evita expandirte de mas. Enfocate en 1 o 2 prioridades." },
+  rabbit: { ko: "관계운이 좋아 조율자 역할에서 빛납니다. 경계 설정이 피로를 줄입니다.", en: "Relationship luck is favorable, and mediation shines. Boundaries reduce burnout.", es: "La suerte en relaciones favorece tu rol de mediador. Poner limites evita desgaste." },
+  dragon: { ko: "리더십 운이 강한 해입니다. 큰 목표는 단계별 실행으로 안정화하세요.", en: "Leadership momentum is strong this year. Break big goals into phased execution.", es: "El impulso de liderazgo es fuerte este ano. Divide metas grandes en fases." },
+  snake: { ko: "학습운과 분석운이 좋습니다. 배운 내용을 바로 실행에 옮기면 성과가 큽니다.", en: "Learning and analysis luck are strong. Apply what you learn quickly for results.", es: "La suerte de aprendizaje y analisis es alta. Aplica rapido lo aprendido." },
+  horse: { ko: "이동·변화운이 활발합니다. 속도는 강점이지만 체크리스트를 함께 쓰세요.", en: "Movement and change are active. Speed is a strength, but use checklists.", es: "Hay mucha energia de cambio. La velocidad ayuda, pero usa listas de control." },
+  goat: { ko: "창의운이 상승합니다. 아이디어를 기록하고 작은 시도로 검증해 보세요.", en: "Creative luck rises. Document ideas and validate with small experiments.", es: "Sube la suerte creativa. Registra ideas y validalas con pruebas pequenas." },
+  monkey: { ko: "기획 전환운이 좋아 방향 수정이 유리합니다. 단, 마감 기준은 분명히 하세요.", en: "Pivot luck is favorable, making strategy changes useful. Keep clear deadlines.", es: "La suerte para pivotar es favorable. Eso si, define plazos claros." },
+  rooster: { ko: "평가·검토운이 강합니다. 품질 개선 프로젝트에서 인정받기 쉽습니다.", en: "Review and quality luck are strong. Improvement projects gain recognition.", es: "La suerte en revision y calidad es fuerte. Los proyectos de mejora destacan." },
+  dog: { ko: "신뢰 자산이 쌓이는 해입니다. 약속 관리가 곧 기회 확장으로 이어집니다.", en: "Trust capital grows this year. Keeping promises expands opportunities.", es: "Este ano crece tu capital de confianza. Cumplir acuerdos abre oportunidades." },
+  pig: { ko: "재물·관계운이 함께 올라옵니다. 기회가 많아도 선택과 집중이 중요합니다.", en: "Resource and relationship luck both improve. Choose carefully among many options.", es: "Mejoran recursos y relaciones. Con muchas opciones, elige con foco." }
+};
+
 function getGanji(year) {
   const stemIndex = ((year - 4) % 10 + 10) % 10;
   const branchIndex = ((year - 4) % 12 + 12) % 12;
@@ -282,6 +375,9 @@ function renderSuccess(year) {
   const stemColorEn = ganji.stem.color.en.toLowerCase();
   const animalKey = ganji.animal.en.toLowerCase();
   const detail = zodiacDetails[animalKey]?.[currentLang];
+  const personality = zodiacPersonality[animalKey]?.[currentLang];
+  const fortune = zodiacFortune[animalKey]?.[currentLang];
+  const currentYear = new Date().getFullYear();
   const animalFileName = animalFileNameMap[animalKey];
   const defaultImageFileName = `${stemColorEn} ${animalFileName}.jpg`;
   const imageFileName = imageFileOverrides[`${stemColorEn} ${animalFileName}`] || defaultImageFileName;
@@ -300,6 +396,18 @@ function renderSuccess(year) {
         <p class="zodiac-meaning">${detail ? detail.meaning : ""}</p>
         <div class="zodiac-traits">
           ${detail ? detail.traits.map((trait) => `<span class="trait-chip">${trait}</span>`).join("") : ""}
+        </div>
+        <div class="profile-block">
+          <h3>${text.personalityTitle}</h3>
+          <p class="profile-type">${personality ? personality.type : ""}</p>
+          <p>${personality ? personality.summary : ""}</p>
+          <p><strong>${text.keywordsLabel}:</strong> ${personality ? personality.keywords.join(", ") : ""}</p>
+          <p><strong>${text.cautionLabel}:</strong> ${personality ? personality.caution : ""}</p>
+        </div>
+        <div class="fortune-block">
+          <h3>${text.fortuneTitle(currentYear)}</h3>
+          <p>${fortune || ""}</p>
+          <p class="fortune-note">${text.entertainmentNote}</p>
         </div>
         <small>${text.detail(ganji.stem.name, animalName)}</small>
       </div>

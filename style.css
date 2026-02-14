@@ -217,6 +217,33 @@ input {
   gap: 8px;
 }
 
+.profile-block,
+.fortune-block {
+  margin-top: 8px;
+  padding: 10px;
+  border: 1px solid #dbe3ef;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.9);
+}
+
+.profile-block h3,
+.fortune-block h3 {
+  margin: 0 0 6px;
+  font-size: 0.96rem;
+}
+
+.profile-type {
+  margin: 0 0 4px;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.fortune-note {
+  margin-top: 6px;
+  font-size: 0.82rem;
+  color: #64748b;
+}
+
 .zodiac-meaning {
   margin: 0;
   font-weight: 600;
