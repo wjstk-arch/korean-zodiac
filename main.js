@@ -38,6 +38,37 @@ const uiText = {
     topNavAbout: "사이트 소개",
     topNavPrivacy: "개인정보처리방침",
     topNavContact: "문의",
+    introTitle: "한국 띠 계산기 안내",
+    introP1: "이 페이지는 출생연도를 기준으로 십이지(12지)와 천간(10간)을 조합해 한국식 띠와 오행 색을 간편하게 확인할 수 있도록 만든 정보형 도구입니다.",
+    introP2: "계산 결과에는 띠 이름뿐 아니라 오행 색, 기본 성향 요약, 참고용 해석을 함께 제공해 빠르게 비교할 수 있게 구성했습니다.",
+    howTitle: "계산 기준과 사용 방법",
+    howItem1Title: "1. 출생연도 입력",
+    howItem1Body: "숫자로 된 출생연도를 입력하면 브라우저에서 즉시 계산합니다. 입력값은 서버에 저장하지 않습니다.",
+    howItem2Title: "2. 60갑자 순환 계산",
+    howItem2Body: "서기 4년을 기준점으로 천간(10)과 지지(12)의 순환 인덱스를 계산해 해당 연도의 띠와 색을 매칭합니다.",
+    howItem3Title: "3. 결과 해석 확인",
+    howItem3Body: "결과 영역에서 띠 이미지, 오행 색, 성향 키워드, 주의 포인트를 확인할 수 있으며 자세한 기준은 가이드 페이지에서 추가로 볼 수 있습니다.",
+    limitTitle: "해석 전 확인할 점",
+    limitItem1: "간편 조회 도구이므로 전통 명리 해석 전체를 대체하지 않습니다.",
+    limitItem2: "1~2월생은 입춘 기준 해석에서 띠가 달라질 수 있습니다.",
+    limitItem3: "문화권과 지역에 따라 동물 명칭 또는 해석 관습이 다를 수 있습니다.",
+    sampleTitle: "연도별 예시 (빠른 확인)",
+    sampleDesc: "아래 예시는 계산기 사용 전에 어떤 형식으로 결과가 나오는지 이해할 수 있도록 제공하는 참고용 안내입니다.",
+    sample1Year: "2024년 예시",
+    sample1Body: "청룡(갑진) 해로 표시되며, 오행 색은 파랑 계열로 안내됩니다.",
+    sample2Year: "2025년 예시",
+    sample2Body: "푸른 뱀(을사) 해로 표시되며, 오행 색은 파랑 계열로 안내됩니다.",
+    sample3Year: "2026년 예시",
+    sample3Body: "붉은 말(병오) 해로 표시되며, 오행 색은 빨강 계열로 안내됩니다.",
+    sample4Year: "2027년 예시",
+    sample4Body: "붉은 양(정미) 해로 표시되며, 오행 색은 빨강 계열로 안내됩니다.",
+    homeFaqTitle: "자주 묻는 질문 (메인 요약)",
+    homeFaqQ1: "광고는 언제 표시되나요?",
+    homeFaqA1: "광고 영역은 계산 결과가 실제로 생성된 뒤에만 표시되도록 구성되어 있습니다.",
+    homeFaqQ2: "출생연도 입력값을 저장하나요?",
+    homeFaqA2: "아니요. 입력값은 브라우저에서 즉시 계산에만 사용되며 서버에 저장하지 않습니다.",
+    homeFaqQ3: "왜 전통 해석과 결과가 다를 수 있나요?",
+    homeFaqA3: "이 도구는 간편 조회용이며, 입춘 기준·음력·세부 명리 요소를 모두 반영한 전문 해석과는 차이가 있을 수 있습니다.",
     yearLabel: "출생년도",
     placeholder: "예: 2026",
     submit: "확인하기",
@@ -67,6 +98,37 @@ const uiText = {
     topNavAbout: "About",
     topNavPrivacy: "Privacy",
     topNavContact: "Contact",
+    introTitle: "How This Korean Zodiac Calculator Works",
+    introP1: "This page is an informational tool that combines the 12 earthly branches and 10 heavenly stems to show a Korean zodiac animal and five-element color by birth year.",
+    introP2: "The result includes the animal name, element color, a short personality summary, and a reference-only interpretation so users can compare results quickly.",
+    howTitle: "Calculation Basis and Usage",
+    howItem1Title: "1. Enter a Birth Year",
+    howItem1Body: "Type a numeric birth year and the result is calculated instantly in the browser. The input is not stored on the server.",
+    howItem2Title: "2. 60-Gapja Cycle Matching",
+    howItem2Body: "Using CE year 4 as a baseline, the tool calculates heavenly stem (10) and earthly branch (12) cycle indexes and matches the corresponding animal and color.",
+    howItem3Title: "3. Read the Result",
+    howItem3Body: "The result panel shows the zodiac image, element color, trait keywords, and a caution note. See the guide page for more background.",
+    limitTitle: "Before Interpreting Results",
+    limitItem1: "This is a quick lookup tool and does not replace full traditional fortune interpretation.",
+    limitItem2: "For January-February births, results may differ under Ipchun seasonal-boundary interpretation.",
+    limitItem3: "Animal names and interpretation customs may vary by region and culture.",
+    sampleTitle: "Year Examples (Quick Check)",
+    sampleDesc: "These examples are reference samples to help users understand the result format before using the calculator.",
+    sample1Year: "Example for 2024",
+    sample1Body: "Displayed as the Blue Dragon year (Gapjin), with a blue-toned five-element color.",
+    sample2Year: "Example for 2025",
+    sample2Body: "Displayed as the Blue Snake year (Eulsa), with a blue-toned five-element color.",
+    sample3Year: "Example for 2026",
+    sample3Body: "Displayed as the Red Horse year (Byeongo), with a red-toned five-element color.",
+    sample4Year: "Example for 2027",
+    sample4Body: "Displayed as the Red Goat year (Jeongmi), with a red-toned five-element color.",
+    homeFaqTitle: "Frequently Asked Questions (Quick Summary)",
+    homeFaqQ1: "When are ads shown?",
+    homeFaqA1: "The ad area is configured to appear only after an actual calculation result is generated.",
+    homeFaqQ2: "Do you store the birth year input?",
+    homeFaqA2: "No. The input is used only for instant browser-side calculation and is not stored on the server.",
+    homeFaqQ3: "Why can results differ from traditional interpretation?",
+    homeFaqA3: "This is a quick lookup tool, so results may differ from professional interpretations that consider Ipchun, lunar dates, and other detailed factors.",
     yearLabel: "Birth Year",
     placeholder: "e.g. 2026",
     submit: "Check",
@@ -96,6 +158,37 @@ const uiText = {
     topNavAbout: "Acerca de",
     topNavPrivacy: "Privacidad",
     topNavContact: "Contacto",
+    introTitle: "Como funciona esta calculadora del zodiaco coreano",
+    introP1: "Esta pagina es una herramienta informativa que combina las 12 ramas terrestres y los 10 troncos celestes para mostrar el animal y color del zodiaco coreano segun el ano de nacimiento.",
+    introP2: "El resultado incluye el nombre del animal, el color del elemento, un resumen breve de personalidad y una interpretacion de referencia para comparar rapidamente.",
+    howTitle: "Base de calculo y uso",
+    howItem1Title: "1. Ingresa el ano de nacimiento",
+    howItem1Body: "Escribe un ano numerico y el resultado se calcula al instante en el navegador. El dato no se guarda en el servidor.",
+    howItem2Title: "2. Ciclo de 60 Gapja",
+    howItem2Body: "Usando el ano 4 d.C. como referencia, la herramienta calcula los indices de tronco celeste (10) y rama terrestre (12) para asignar animal y color.",
+    howItem3Title: "3. Revisar el resultado",
+    howItem3Body: "El panel de resultado muestra imagen del zodiaco, color del elemento, palabras clave y una nota de cuidado. La guia explica mas detalles.",
+    limitTitle: "Antes de interpretar el resultado",
+    limitItem1: "Es una herramienta de consulta rapida y no reemplaza una interpretacion tradicional completa.",
+    limitItem2: "Para nacimientos de enero-febrero, el resultado puede variar con criterio estacional de Ipchun.",
+    limitItem3: "Los nombres de animales y costumbres de interpretacion pueden variar segun region y cultura.",
+    sampleTitle: "Ejemplos por ano (revision rapida)",
+    sampleDesc: "Estos ejemplos son referencias para que el usuario entienda el formato del resultado antes de usar la calculadora.",
+    sample1Year: "Ejemplo de 2024",
+    sample1Body: "Se muestra como ano del Dragon Azul (Gapjin), con color del elemento en tonos azules.",
+    sample2Year: "Ejemplo de 2025",
+    sample2Body: "Se muestra como ano de la Serpiente Azul (Eulsa), con color del elemento en tonos azules.",
+    sample3Year: "Ejemplo de 2026",
+    sample3Body: "Se muestra como ano del Caballo Rojo (Byeongo), con color del elemento en tonos rojos.",
+    sample4Year: "Ejemplo de 2027",
+    sample4Body: "Se muestra como ano de la Cabra Roja (Jeongmi), con color del elemento en tonos rojos.",
+    homeFaqTitle: "Preguntas frecuentes (resumen)",
+    homeFaqQ1: "Cuando se muestran los anuncios?",
+    homeFaqA1: "El area de anuncios aparece solo despues de que se genera un resultado real del calculo.",
+    homeFaqQ2: "Guardan el ano de nacimiento ingresado?",
+    homeFaqA2: "No. El dato se usa solo para calculo inmediato en el navegador y no se guarda en el servidor.",
+    homeFaqQ3: "Por que puede diferir de la interpretacion tradicional?",
+    homeFaqA3: "Es una herramienta de consulta rapida y puede diferir de interpretaciones profesionales que consideran Ipchun, calendario lunar y otros factores.",
     yearLabel: "Ano de nacimiento",
     placeholder: "ej. 2026",
     submit: "Ver",
@@ -132,6 +225,37 @@ const topNavFinder = document.getElementById("topNavFinder");
 const topNavAbout = document.getElementById("topNavAbout");
 const topNavPrivacy = document.getElementById("topNavPrivacy");
 const topNavContact = document.getElementById("topNavContact");
+const introTitle = document.getElementById("introTitle");
+const introP1 = document.getElementById("introP1");
+const introP2 = document.getElementById("introP2");
+const howTitle = document.getElementById("howTitle");
+const howItem1Title = document.getElementById("howItem1Title");
+const howItem1Body = document.getElementById("howItem1Body");
+const howItem2Title = document.getElementById("howItem2Title");
+const howItem2Body = document.getElementById("howItem2Body");
+const howItem3Title = document.getElementById("howItem3Title");
+const howItem3Body = document.getElementById("howItem3Body");
+const limitTitle = document.getElementById("limitTitle");
+const limitItem1 = document.getElementById("limitItem1");
+const limitItem2 = document.getElementById("limitItem2");
+const limitItem3 = document.getElementById("limitItem3");
+const sampleTitle = document.getElementById("sampleTitle");
+const sampleDesc = document.getElementById("sampleDesc");
+const sample1Year = document.getElementById("sample1Year");
+const sample1Body = document.getElementById("sample1Body");
+const sample2Year = document.getElementById("sample2Year");
+const sample2Body = document.getElementById("sample2Body");
+const sample3Year = document.getElementById("sample3Year");
+const sample3Body = document.getElementById("sample3Body");
+const sample4Year = document.getElementById("sample4Year");
+const sample4Body = document.getElementById("sample4Body");
+const homeFaqTitle = document.getElementById("homeFaqTitle");
+const homeFaqQ1 = document.getElementById("homeFaqQ1");
+const homeFaqA1 = document.getElementById("homeFaqA1");
+const homeFaqQ2 = document.getElementById("homeFaqQ2");
+const homeFaqA2 = document.getElementById("homeFaqA2");
+const homeFaqQ3 = document.getElementById("homeFaqQ3");
+const homeFaqA3 = document.getElementById("homeFaqA3");
 const footerNote = document.getElementById("footerNote");
 const footerAbout = document.getElementById("footerAbout");
 const footerPrivacy = document.getElementById("footerPrivacy");
@@ -335,6 +459,37 @@ function setLanguage(lang) {
   topNavAbout.textContent = text.topNavAbout;
   topNavPrivacy.textContent = text.topNavPrivacy;
   topNavContact.textContent = text.topNavContact;
+  introTitle.textContent = text.introTitle;
+  introP1.textContent = text.introP1;
+  introP2.textContent = text.introP2;
+  howTitle.textContent = text.howTitle;
+  howItem1Title.textContent = text.howItem1Title;
+  howItem1Body.textContent = text.howItem1Body;
+  howItem2Title.textContent = text.howItem2Title;
+  howItem2Body.textContent = text.howItem2Body;
+  howItem3Title.textContent = text.howItem3Title;
+  howItem3Body.textContent = text.howItem3Body;
+  limitTitle.textContent = text.limitTitle;
+  limitItem1.textContent = text.limitItem1;
+  limitItem2.textContent = text.limitItem2;
+  limitItem3.textContent = text.limitItem3;
+  sampleTitle.textContent = text.sampleTitle;
+  sampleDesc.textContent = text.sampleDesc;
+  sample1Year.textContent = text.sample1Year;
+  sample1Body.textContent = text.sample1Body;
+  sample2Year.textContent = text.sample2Year;
+  sample2Body.textContent = text.sample2Body;
+  sample3Year.textContent = text.sample3Year;
+  sample3Body.textContent = text.sample3Body;
+  sample4Year.textContent = text.sample4Year;
+  sample4Body.textContent = text.sample4Body;
+  homeFaqTitle.textContent = text.homeFaqTitle;
+  homeFaqQ1.textContent = text.homeFaqQ1;
+  homeFaqA1.textContent = text.homeFaqA1;
+  homeFaqQ2.textContent = text.homeFaqQ2;
+  homeFaqA2.textContent = text.homeFaqA2;
+  homeFaqQ3.textContent = text.homeFaqQ3;
+  homeFaqA3.textContent = text.homeFaqA3;
   footerNote.textContent = text.footerNote;
   footerAbout.textContent = text.footerAbout;
   footerPrivacy.textContent = text.footerPrivacy;
@@ -453,15 +608,26 @@ function initAdsOnce() {
   if (adsInitialized) {
     return;
   }
-  const adUnits = document.querySelectorAll(".adsbygoogle");
-  adUnits.forEach(() => {
-    try {
-      (window.adsbygoogle = window.adsbygoogle || []).push({});
-      adsInitialized = true;
-    } catch (error) {
-      // Ignore init errors in local/dev environments.
-    }
-  });
+  if (!mainAdWrap) {
+    return;
+  }
+  let adUnit = mainAdWrap.querySelector(".adsbygoogle");
+  if (!adUnit) {
+    adUnit = document.createElement("ins");
+    adUnit.className = "adsbygoogle";
+    adUnit.style.display = "block";
+    adUnit.setAttribute("data-ad-client", "ca-pub-1729963445470866");
+    adUnit.setAttribute("data-ad-slot", "0000000000");
+    adUnit.setAttribute("data-ad-format", "auto");
+    adUnit.setAttribute("data-full-width-responsive", "true");
+    mainAdWrap.appendChild(adUnit);
+  }
+  try {
+    (window.adsbygoogle = window.adsbygoogle || []).push({});
+    adsInitialized = true;
+  } catch (error) {
+    // Ignore init errors in local/dev environments.
+  }
 }
 
 function showAdAfterContent() {
